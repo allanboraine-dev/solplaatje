@@ -22,8 +22,8 @@ export default function LoginPage() {
       </div>
 
       {/* Right side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-slate-50">
-        <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+        <div className="w-full max-w-md bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200/80">
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-slate-900">Sign in to your account</h1>
             <p className="text-slate-500 mt-2 text-sm">Enter your email and password below</p>

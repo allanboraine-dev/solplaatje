@@ -2,13 +2,50 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { createClient } from '@/lib/supabase/client'
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isCommsManager, setIsCommsManager] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    const supabase = createClient()
+    
+    async function checkRole() {
+      try {
+        const { data: { user } } = await supabase.auth.getUser()
+        if (user) {
+          const { data: profile } = await (supabase as any)
+            .from('profiles')
+            .select('role')
+            .eq('id', user.id)
+            .single()
+          setIsCommsManager(profile?.role === 'comms_manager')
+        } else {
+          setIsCommsManager(false)
+        }
+      } catch {
+        setIsCommsManager(false)
+      }
+    }
+
+    checkRole()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      checkRole()
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  // Never show Manager Dashboard tab on resident registration/signup or for non-managers
+  const showManagerDashboard = isCommsManager && pathname !== '/signup' && pathname !== '/login'
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-200">
+    <header className="bg-white/85 backdrop-blur-md shadow-xs sticky top-0 z-50 border-b border-slate-200/80 transition-all">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-24">
           
@@ -40,9 +77,11 @@ export function Header() {
             <Link href="/trucks" className="px-4 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-50 hover:text-primary transition-colors">
               Truck Tracking
             </Link>
-            <Link href="/admin" className="px-4 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-50 hover:text-primary transition-colors">
-              Manager Dashboard
-            </Link>
+            {showManagerDashboard && (
+              <Link href="/admin" className="px-4 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-50 hover:text-primary transition-colors">
+                Manager Dashboard
+              </Link>
+            )}
           </nav>
 
           {/* Desktop Auth Buttons */}
@@ -71,7 +110,7 @@ export function Header() {
 
       {/* Mobile Navigation Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white border-b border-slate-200 shadow-lg py-4 px-4 flex flex-col gap-2 animate-in slide-in-from-top-2">
+        <div className="md:hidden absolute top-20 md:top-24 left-0 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xl py-4 px-4 flex flex-col gap-2 animate-in slide-in-from-top-2">
           <Link 
             href="/updates" 
             onClick={() => setIsMobileMenuOpen(false)}
@@ -86,13 +125,15 @@ export function Header() {
           >
             Truck Tracking
           </Link>
-          <Link 
-            href="/admin" 
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="px-4 py-3 text-sm font-medium text-slate-700 bg-slate-50 rounded-lg"
-          >
-            Manager Dashboard
-          </Link>
+          {showManagerDashboard && (
+            <Link 
+              href="/admin" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 text-sm font-medium text-slate-700 bg-slate-50 rounded-lg"
+            >
+              Manager Dashboard
+            </Link>
+          )}
           
           <div className="h-px bg-slate-200 my-2"></div>
           
@@ -115,3 +156,4 @@ export function Header() {
     </header>
   )
 }
+

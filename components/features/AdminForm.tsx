@@ -30,8 +30,8 @@ export function AdminForm() {
   const [state, formAction] = useFormState(createUpdate, null)
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-      <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+    <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
+      <div className="bg-slate-50/80 px-6 py-4 border-b border-slate-200/80">
         <h2 className="text-lg font-bold text-slate-800">Compose Broadcast</h2>
         <p className="text-sm text-slate-500">Send an official update to residents in specific wards or city-wide.</p>
       </div>

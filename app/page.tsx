@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col min-h-[calc(100vh-4rem)]">
       
       {/* --- STUNNING HERO SECTION --- */}
-      <section className="relative min-h-[90vh] flex items-center pt-12 pb-24 px-4 overflow-hidden bg-slate-50">
+      <section className="relative min-h-[90vh] flex items-center pt-12 pb-24 px-4 overflow-hidden">
         
         {/* Background Magic: Grid Pattern & Animated Glassmorphism Orbs */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* --- FEATURES SECTION --- */}
-      <section className="py-24 bg-white relative z-20">
+      <section className="py-24 relative z-20">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Empowering the Frances Baard District</h2>
@@ -120,8 +120,8 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             
             {/* Feature 1 */}
-            <div className="bg-slate-50 rounded-[2rem] p-10 border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/5 hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-white shadow-md text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+            <div className="bg-white/80 backdrop-blur-md rounded-[2rem] p-10 border border-slate-200/80 hover:border-blue-300 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Targeted Ward Alerts</h3>
@@ -131,8 +131,8 @@ export default function Home() {
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-slate-50 rounded-[2rem] p-10 border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/5 hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-white shadow-md text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
+            <div className="bg-white/80 backdrop-blur-md rounded-[2rem] p-10 border border-slate-200/80 hover:border-blue-300 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Live Truck Tracking</h3>
@@ -142,8 +142,8 @@ export default function Home() {
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-slate-50 rounded-[2rem] p-10 border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/5 hover:-translate-y-2 transition-all duration-300 group">
-              <div className="w-16 h-16 bg-white shadow-md text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+            <div className="bg-white/80 backdrop-blur-md rounded-[2rem] p-10 border border-slate-200/80 hover:border-blue-300 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-16 h-16 bg-blue-50/80 border border-blue-100 shadow-sm text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Direct Engagement</h3>

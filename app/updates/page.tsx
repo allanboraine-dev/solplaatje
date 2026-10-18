@@ -6,7 +6,7 @@ export default async function UpdatesPage() {
   const updates = await fetchUpdates()
 
   return (
-    <div className="bg-slate-50 min-h-[calc(100vh-4rem)] pt-8 pb-16">
+    <div className="min-h-[calc(100vh-5rem)] pt-8 pb-16">
       <div className="container mx-auto px-4 max-w-2xl">
         
         {/* Feed Header */}
@@ -19,7 +19,7 @@ export default async function UpdatesPage() {
             <Link href="/updates/archive" className="text-sm font-semibold text-slate-500 hover:text-primary underline-offset-4 hover:underline transition-all">
               View Archive
             </Link>
-            <div className="hidden sm:inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-green-100 text-green-800">
+            <div className="hidden sm:inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-green-100 text-green-800 shadow-xs border border-green-200/60">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
               Live
             </div>
@@ -27,7 +27,7 @@ export default async function UpdatesPage() {
         </div>
         
         {updates.length === 0 ? (
-          <div className="text-center p-12 bg-white rounded-2xl shadow-sm border border-slate-200">
+          <div className="text-center p-12 bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80">
             <svg className="w-16 h-16 text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
             <h3 className="text-lg font-bold text-slate-700 mb-1">No updates yet</h3>
             <p className="text-slate-500">You're all caught up! Check back later for official announcements.</p>
@@ -35,7 +35,7 @@ export default async function UpdatesPage() {
         ) : (
           <div className="space-y-8">
             {updates.map((update: any) => (
-              <div key={update.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition-shadow hover:shadow-md">
+              <div key={update.id} className="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden transition-all duration-200 hover:shadow-md hover:border-blue-200">
                 
                 {/* Update Post Header */}
                 <div className="p-6 pb-4">
@@ -66,7 +66,7 @@ export default async function UpdatesPage() {
                 </div>
 
                 {/* Interaction Bar */}
-                <div className="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-sm text-slate-500">
+                <div className="px-6 py-3 bg-slate-50/70 border-t border-slate-100/80 flex items-center justify-between text-sm text-slate-500">
                   <div className="flex items-center gap-2 font-medium">
                     <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                     {update.comments?.length || 0} {update.comments?.length === 1 ? 'Comment' : 'Comments'}
@@ -74,7 +74,7 @@ export default async function UpdatesPage() {
                 </div>
 
                 {/* Comments Section */}
-                <div className="px-6 pb-6 bg-slate-50">
+                <div className="px-6 pb-6 bg-slate-50/70">
                   {update.comments && update.comments.length > 0 && (
                     <div className="space-y-4 mb-4 pt-4 border-t border-slate-200/60">
                       {update.comments.map((comment: any) => (

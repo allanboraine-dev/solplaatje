@@ -67,8 +67,8 @@ export default async function AdminDashboard() {
         <div className="lg:col-span-1 space-y-6">
           
           {/* Recent Broadcasts Widget */}
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-            <div className="bg-slate-50 px-5 py-4 border-b border-slate-200">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
+            <div className="bg-slate-50/80 px-5 py-4 border-b border-slate-200/80">
               <h3 className="font-bold text-slate-800 flex items-center gap-2">
                 <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
                 Your Recent Broadcasts
@@ -104,7 +104,7 @@ export default async function AdminDashboard() {
           </div>
           
           {/* Quick Tips Widget */}
-          <div className="bg-primary/5 rounded-2xl border border-primary/10 p-5 shadow-sm">
+          <div className="bg-blue-50/70 backdrop-blur-sm rounded-2xl border border-blue-200/50 p-5 shadow-sm">
             <h3 className="font-bold text-primary mb-3 flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               Comms Guidelines

@@ -32,9 +32,9 @@ export default function TrucksPage() {
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
           {/* Mock Map View */}
-          <div className="bg-slate-200 h-[400px] rounded-xl flex items-center justify-center border border-slate-300 relative overflow-hidden shadow-inner">
-            <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/cartographer.png")' }}></div>
-            <p className="text-slate-500 font-medium z-10 bg-white/80 px-4 py-2 rounded-md shadow">
+          <div className="bg-slate-200/90 backdrop-blur-md h-[400px] rounded-2xl flex items-center justify-center border border-slate-300/80 relative overflow-hidden shadow-sm">
+            <div className="absolute inset-0 opacity-25 pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/cartographer.png")' }}></div>
+            <p className="text-slate-600 font-medium z-10 bg-white/90 backdrop-blur-md px-4 py-2 rounded-lg shadow-sm border border-slate-200/70">
               Interactive Map Interface
             </p>
             {trucks.map(truck => (
@@ -53,7 +53,7 @@ export default function TrucksPage() {
             ))}
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80 p-6">
             <h2 className="text-xl font-semibold mb-4 text-primary">Active Trucks</h2>
             {trucks.length === 0 ? (
               <p className="text-sm text-slate-500">No trucks currently tracked.</p>

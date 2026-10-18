@@ -6,13 +6,13 @@ export default async function UpdatesArchivePage() {
   const updates = await fetchUpdates(true) // Pass true for archived updates
 
   return (
-    <div className="bg-slate-100 min-h-[calc(100vh-4rem)] pt-8 pb-16">
+    <div className="min-h-[calc(100vh-5rem)] pt-8 pb-16">
       <div className="container mx-auto px-4 max-w-2xl">
         
         {/* Feed Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-extrabold text-slate-600 tracking-tight flex items-center gap-3">
+            <h1 className="text-3xl font-extrabold text-slate-700 tracking-tight flex items-center gap-3">
               <Link href="/updates" className="text-slate-400 hover:text-primary transition-colors">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
               </Link>
@@ -21,22 +21,22 @@ export default async function UpdatesArchivePage() {
             <p className="text-slate-500 mt-1 ml-11">Viewing inactive updates older than 7 days.</p>
           </div>
           <div className="hidden sm:block">
-            <span className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-slate-200 text-slate-600">
+            <span className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-slate-200 text-slate-600 shadow-xs border border-slate-300/60">
               Archived
             </span>
           </div>
         </div>
         
         {updates.length === 0 ? (
-          <div className="text-center p-12 bg-white rounded-2xl shadow-sm border border-slate-200">
+          <div className="text-center p-12 bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80">
             <svg className="w-16 h-16 text-slate-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
             <h3 className="text-lg font-bold text-slate-700 mb-1">No historical updates</h3>
             <p className="text-slate-500">There are no updates older than 7 days for your ward.</p>
           </div>
         ) : (
-          <div className="space-y-8 opacity-80">
+          <div className="space-y-8 opacity-90">
             {updates.map((update: any) => (
-              <div key={update.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition-shadow hover:shadow-md">
+              <div key={update.id} className="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden transition-all duration-200 hover:shadow-md">
                 
                 {/* Update Post Header */}
                 <div className="p-6 pb-4">
@@ -67,7 +67,7 @@ export default async function UpdatesArchivePage() {
                 </div>
 
                 {/* Comments Section */}
-                <div className="px-6 pb-6 bg-slate-50">
+                <div className="px-6 pb-6 bg-slate-50/70">
                   {update.comments && update.comments.length > 0 && (
                     <div className="space-y-4 mb-4 pt-4 border-t border-slate-200/60">
                       {update.comments.map((comment: any) => (
